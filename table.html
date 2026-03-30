@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Management System</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-flex">
+        <h2>👥 Members Management</h2>
+        <button class="btn btn-add" id="openAddModal"> + Add New Member</button>
+    </div>
+
+    <table id="membersTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Date registered</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Admin Kece</td>
+                <td>2023/01/01</td>
+                <td>Admin</td>
+                <td><span class="status active">active</span></td>
+                <td>
+                    <button class="btn btn-edit">Edit</button>
+                    <button class="btn btn-delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="memberModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalTitle">Add New Member</h3>
+        <input type="hidden" id="editRowIdx"> 
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="m_username" placeholder="Masukkan nama...">
+        </div>
+        <div class="form-group">
+            <label>Role</label>
+            <select id="m_role">
+                <option value="Member">Member</option>
+                <option value="Staff">Staff</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <select id="m_status">
+                <option value="active">Active</option>
+                <option value="pending">Pending</option>
+                <option value="banned">Banned</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-cancel" onclick="closeModal()">Batal</button>
+            <button class="btn btn-add" id="saveMemberBtn">Simpan Data</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
